@@ -21,6 +21,9 @@ Route::get('/genre', 'GenreController@index');
 
 Route::get('/realisateur', 'RealisateurController@index');
 
+Route::get('user/create', 'UserController@create');
+Route::post('user/create', 'UserController@store');
+
 Route::dispatch();
 
 ?>
