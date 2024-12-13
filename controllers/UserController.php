@@ -15,7 +15,10 @@ class UserController{
         $privileges = $privilege->select('privilege');
         return View::render('user/create', ['privileges'=>$privileges]);
     }
-
+    
+    /**
+     * Valide les donneés saisies par l'utilisateur et les insère dans la base de données si la validation est réussit. Sinon, gère les erreurs. 
+     */
     public function store($data = []){
         $validator = new Validator;
         $validator->field('name', $data['name'])->min(2)->max(50);
