@@ -40,6 +40,13 @@ class Validator
         return $this;
     }
 
+    public function email() {
+        if (!empty($this->value) && !filter_var($this->value, FILTER_VALIDATE_EMAIL)) {
+            $this->errors[$this->key]="Format $this->name invalide.";
+        }
+        return $this;
+    }
+
     public function min($length)
     {
         if (strlen($this->value) < $length) {
