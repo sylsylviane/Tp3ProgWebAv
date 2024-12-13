@@ -63,6 +63,13 @@ class Validator
         return $this;
     }
 
+    public function int(){
+        if(!filter_var($this->value, FILTER_VALIDATE_INT)){
+            $this->errors[$this->key]="$this->name doit être un chiffre.";
+        } 
+        return $this;
+    }
+
     /**
      * Gère la validation ou de vérifie les contraintes d'unicité 
      */
