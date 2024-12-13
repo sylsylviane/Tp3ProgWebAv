@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Providers;
+use App\Models;
 
 class Validator
 {
@@ -55,12 +56,18 @@ class Validator
         return $this;
     }
 
-    // public function number() {
-    //     if (!empty($this->value) && !is_numeric($this->value)) {
-    //         $this->errors[$this->key]="$this->name must be a number.";
-    //     }
-    //     return $this;
-    // }
+    /**
+     * Gère la validation ou de vérifie les contraintes d'unicité 
+     */
+    public function unique($model){
+        $model = 'App\\Models\\'.$model;
+        $model = new $model;
+        $unique = $model->unique($this->key, $this->value);
+        if ($unique){
+            $this->errors[$this->key] = '$this->name doit être unique.';
+        }
+        return $this;
+    }
 
     public function isSuccess()
     {
