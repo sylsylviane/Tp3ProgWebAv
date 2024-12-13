@@ -1,0 +1,14 @@
+body{
+    margin: 0;
+    color: var(--gris-fonce);
+}
+
+body > footer{
+    background-color: var(--gris-fonce);
+    padding: 2em;
+}
+
+body > footer p{
+    text-align: center;
+    color: var(--blanc);
+}

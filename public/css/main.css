@@ -1,0 +1,24 @@
+@import "./base/typographie.css"; 
+@import "./base/couleur.css"; 
+
+@import "./components/region-container.css";
+@import "./components/side-nav.css";
+@import "./components/menu-deroulant.css";
+@import "./components/nav-top.css";
+@import "./components/btn.css";
+@import "./components/table.css";
+@import "./components/container.css";
+@import "./components/formulaire.css";
+@import "./components/flex.css";
+
+
+@import "./layout/body.css";
+@import "./layout/general.css";
+
+
+
+
+
+
+
+

@@ -1,0 +1,9 @@
+[id='region-container']{
+    display: flex;
+    flex-direction: row;
+    min-height: 100dvh;
+}
+
+[id='region-container'] > main{
+    padding: 2em;
+}

@@ -1,0 +1,38 @@
+.nav-top{
+    background-color: var(--gris-fonce);
+    color: var(--blanc);
+    padding: 2em;
+    text-align: right;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    border-bottom: 5px solid var(--vert);
+}
+
+.nav-top > a {
+    font-size: 1.75em;
+    color: inherit;
+}
+
+.nav-top > div > a{
+    color: inherit;
+    padding: 1em;
+    text-transform: uppercase;
+
+    &:hover{
+        color: var(--vert);
+    }
+} 
+
+.nav-top div{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.nav-top input[type="search"]{
+    padding: 0.5em;
+    border-radius: 5px;
+    min-width: 250px;
+}

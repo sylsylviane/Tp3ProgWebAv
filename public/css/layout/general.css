@@ -1,0 +1,17 @@
+*{
+    box-sizing: border-box;
+}
+
+a{
+    color: var(--gris-fonce);
+    text-decoration: none;
+}
+
+button{
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+
+

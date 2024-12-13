@@ -1,0 +1,38 @@
+.table {
+  background-color: var(--blanc);
+  padding: 20px 0;
+  margin: 10px 0;
+  width: 100%;
+  overflow: auto;
+  border-radius: 3px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.table thead {
+  background: var(--gris-fonce);
+  color: var(--blanc);
+  padding: 10px 30px;
+  margin: -20px -25px 10px;
+  border-radius: 0px 0px 0 0;
+}
+
+.table th:first-child {
+  min-width: 150px;
+}
+
+.table th,
+.table td {
+  border-color: var(--gris-pale);
+  padding: 8px 15px;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.table > tbody tr:nth-of-type(odd) {
+  background-color: var(--gris-pale);
+}
+
+.table a:hover{
+  color: var(--rouge);
+}
+

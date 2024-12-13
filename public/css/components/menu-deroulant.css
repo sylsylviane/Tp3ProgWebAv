@@ -1,0 +1,17 @@
+.menu-deroulant{
+    position: relative;
+}
+.menu-deroulant > ul{
+    position: absolute;
+    width: max-content;
+    top: 100%;
+    right: 40px;
+    transition-property: opacity, transform;
+    transition-duration: 200ms;
+
+}
+.menu-deroulant:not(:hover) > ul{
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+}
