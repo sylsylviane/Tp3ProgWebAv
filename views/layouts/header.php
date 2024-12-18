@@ -18,8 +18,14 @@
                     <input type="search" placeholder="Search" name="search">
                 </label>
             </form>
-            <a href="#">Connexion</a>
-            <a href="#">Déconnexion</a>
+            {% if session.privilege_id == 1 %}
+            <a href="{{base}}/journal">Journal de bord</a>
+            {% endif %}
+            {% if guest %}
+            <a href="{{base}}/login">Connexion</a>
+            {% else %}
+            <a href="{{base}}/logout">Déconnexion</a>
+            {% endif %}
         </div>
 
     </nav>
@@ -38,9 +44,17 @@
                 </li>
             </ul>
             <ul>
-                <li><a href="">Profil</a></li>
+                {% if session.privilege_id == 1 %}
+                <li><a href="{{base}}/user/create">Créer un profil</a></li>
+                {% endif %}
+                {% if guest %}
                 <li><a href="">Connexion</a></li>
+                {% else %}
                 <li><a href="">Déconnexion</a></li>
+                {% endif %}
             </ul>
         </nav>
         <main>
+            {% if guest is empty %}
+            <h1>Bonjour {{ session.user_name }}!</h1>
+            {% endif %}
