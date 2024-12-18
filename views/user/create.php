@@ -1,39 +1,37 @@
-{{include ('layouts/header.php', {title: 'Registration'})}}
-
-    <div class="container">
-        {% if errors is defined %}
-        <div class="error">
-            <ul>
-                {% for error in errors %}
-                    <li>{{ error }}</li>
-                {% endfor %}
-            </ul>
-        </div>
-        {% endif %}
-        <form method="post">
-            <h2>Registration</h2>
+{{ include('layouts/header.php', {title:'User Create'})}}
+<div class="container">
+        <form method="post" class="formulaire">
+            <h2>Créer un profil</h2>
             <label>Nom
-                <input type="text" name="name" value="{{ user.name }}">
+                <input type="text" name="name" value="{{ inputs.name }}">
             </label>
-            <label>Nom d'utilisateur
-                <input type="email" name="username" value="{{ user.username }}">
+             {% if errors.name is defined %}                   
+             <span class="error">{{ errors.name }}</span>
+            {% endif %}
+             <label>Nom d'utilisateur
+                <input type="email" name="username" value="{{ inputs.username }}">
             </label>
+            {% if errors.username is defined %}                   
+             <span class="error">{{ errors.username }}</span>
+            {% endif %}
             <label>Mot de passe
                 <input type="password" name="password">
             </label>
-            <label>Courriel
-                <input type="email" name="email" value="{{ user.email }}">
-            </label>
-
-            <label>Privilège
+            {% if errors.password is defined %}                   
+             <span class="error">{{ errors.password }}</span>
+             {% endif %}
+            <label>Privilege
                 <select name="privilege_id">
-                    <option value="">Sélectionner</option>
+                    <option value="">Select</option>
                     {% for privilege in privileges %}
-                        <option value="{{ privilege.id }}" {% if privilege.id == user.privilege_id %} selected {% endif}>{{privilege.privilege}}</option>
-                    {{% endfor %}}
+                        <option value="{{privilege.id}}" {% if(privilege.id == inputs.privilege_id) %} selected {%endif%}>{{ privilege.privilege}}</option>
+                    {% endfor %}privilege_id
                 </select>
             </label>
+            {% if errors.privilege_id is defined %}                   
+             <span class="error">{{ errors.privilege_id }}</span>
+            {% endif %}
             <input type="submit" class="btn" value="Sauvegarder">
         </form>
     </div>
-    {{ include ('layouts/footer.php')}}
+{{ include('layouts/footer.php')}}
