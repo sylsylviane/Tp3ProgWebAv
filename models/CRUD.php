@@ -38,6 +38,7 @@ abstract class CRUD extends \PDO
 
     final public function insert($data)
     {
+
         $data_keys = array_fill_keys($this->fillable, '');
         $data = array_intersect_key($data, $data_keys);
         $fieldName = implode(', ', array_keys($data));
@@ -108,15 +109,16 @@ abstract class CRUD extends \PDO
     /**
      * Vérifie si une valeur donnée pour un champ spécifié dans la table de base de données est unique ou non, renvoyant true si elle est unique et false sinon.
      */
-    public function unique($field, $value){
+    final public function unique($field, $value)
+    {
         $sql = "SELECT * FROM $this->table WHERE $field = :$field";
         $stmt = $this->prepare($sql);
-        $stmt->bindValue('$field', $value);
+        $stmt->bindValue("$field", $value);
         $stmt->execute();
         $count = $stmt->rowCount();
-        if($count == 1){
+        if ($count == 1) {
             return $stmt->fetch();
-        }else{
+        } else {
             return false;
         }
     }
