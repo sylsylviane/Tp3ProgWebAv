@@ -6,11 +6,18 @@ use App\Models\Film;
 use App\Providers\View;
 use App\Models\Genre;
 use App\Providers\Validator;
+use App\Providers\Auth;
 
 class FilmController
 {
+    public function __construct()
+    {
+        Auth::session();
+    }
+    
     public function indexHome()
     {
+
         $film = new Film;
         $films = $film->getFiveNewest('titre');
         $genre = new Genre;
@@ -21,8 +28,10 @@ class FilmController
             return View::render('error');
         }
     }
+    
     public function index()
     {
+        Auth::session();
         $film = new Film;
         $films = $film->select('titre');
         $genre = new Genre;
