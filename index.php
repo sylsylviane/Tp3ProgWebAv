@@ -14,7 +14,7 @@ if (isset($_SESSION['user_name'])) {
 } else {
     $username = 'Invité';
 }
-$page_visitee = $_SERVER['PHP_SELF'];
+$page_visitee = $_SERVER['REQUEST_URI'];
 
 $insert = $journal->insert(['adresse_ip' => $ip, 'nom_utilisateur' => $username, 'page_visitee' => $page_visitee]);
 
