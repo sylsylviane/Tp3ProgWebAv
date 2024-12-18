@@ -17,7 +17,9 @@
         <a href="{{ base }}/film/edit?id={{film.id}}" class="btn block">Modifier</a>
         <form action="{{ base }}/film/delete" method="post">
             <input type="hidden" name="id" value="{{ film.id }}">
+            {% if session.privilege_id == 1 %}
             <button type="submit" class="btn btn_red">Supprimer</button>
+            {% endif %}
             <a href="{{base}}/film" class="btn retour">Retour</a>
         </form>
     </div>
