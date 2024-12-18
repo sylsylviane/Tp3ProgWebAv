@@ -4,6 +4,7 @@ use App\Controllers\FilmController;
 use App\Controllers\ActeurController;
 use App\Controllers\GenreController;
 use App\Controllers\RealisateurController;
+use App\Controllers\JournalController;
 
 Route::get('/home', 'FilmController@indexHome');
 
@@ -21,12 +22,14 @@ Route::get('/genre', 'GenreController@index');
 
 Route::get('/realisateur', 'RealisateurController@index');
 
-Route::get('user/create', 'UserController@create');
-Route::post('user/create', 'UserController@store');
+Route::get('/user/create', 'UserController@create');
+Route::post('/user/create', 'UserController@store');
 
 Route::get('/login', 'AuthController@index');
 Route::post('/login', 'AuthController@store');
 Route::get('/logout', 'AuthController@delete');
+
+Route::get('/journal', 'JournalController@index');
 
 Route::dispatch();
 
