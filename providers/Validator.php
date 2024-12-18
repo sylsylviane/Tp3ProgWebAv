@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Providers;
-use App\Models;
+
 
 class Validator
 {
@@ -40,9 +40,10 @@ class Validator
         return $this;
     }
 
-    public function email() {
+    public function email()
+    {
         if (!empty($this->value) && !filter_var($this->value, FILTER_VALIDATE_EMAIL)) {
-            $this->errors[$this->key]="Format $this->name invalide.";
+            $this->errors[$this->key] = "Format $this->name invalide.";
         }
         return $this;
     }
@@ -63,21 +64,31 @@ class Validator
         return $this;
     }
 
-    public function int(){
-        if(!filter_var($this->value, FILTER_VALIDATE_INT)){
-            $this->errors[$this->key]="$this->name doit être un chiffre.";
-        } 
+    public function number()
+    {
+        if (!empty($this->value) && !is_numeric($this->value)) {
+            $this->errors[$this->key] = "$this->name must be a number.";
+        }
+        return $this;
+    }
+
+    public function int()
+    {
+        if (!filter_var($this->value, FILTER_VALIDATE_INT)) {
+            $this->errors[$this->key] = "$this->name doit être un chiffre.";
+        }
         return $this;
     }
 
     /**
      * Gère la validation ou de vérifie les contraintes d'unicité 
      */
-    public function unique($model){
-        $model = 'App\\Models\\'.$model;
+    public function unique($model)
+    {
+        $model = 'App\\Models\\' . $model;
         $model = new $model;
         $unique = $model->unique($this->key, $this->value);
-        if ($unique){
+        if ($unique) {
             $this->errors[$this->key] = '$this->name doit être unique.';
         }
         return $this;
